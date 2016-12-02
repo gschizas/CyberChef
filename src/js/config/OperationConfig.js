@@ -2782,5 +2782,12 @@ var OperationConfig = {
         input_type: "string",
         output_type: "string",
         args: []
+    },
+    "Romanize": {
+        description: "Translates the Greek alphabet into Latin using ISO 843:1999",
+        run: Romanize.run,
+        input_type: "string",
+        output_type: "string",
+        args: []
     }
 };

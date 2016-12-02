@@ -129,6 +129,7 @@ var Categories = [
         ops: [
             "Text encoding",
             "Unescape Unicode Characters",
+            "Romanize",
         ]
     },
     {
