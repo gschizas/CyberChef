@@ -15,7 +15,7 @@ var CharEnc = {
      * @constant
      * @default
      */
-    IO_FORMAT: ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "Windows-1251", "Hex", "Base64"],
+    IO_FORMAT: ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "Windows-1251", "Windows-1253", "Hex", "Base64"],
     
     /**
      * Text encoding operation.
@@ -31,6 +31,9 @@ var CharEnc = {
         if (input_format == "Windows-1251") {
             input = Utils.win1251_to_unicode(input);
             input = CryptoJS.enc.Utf8.parse(input);
+        } else if (input_format == "Windows-1253") {
+            input = Utils.win1253_to_unicode(input);
+            input = CryptoJS.enc.Utf8.parse(input);
         } else {
             input = Utils.format[input_format].parse(input);
         }
@@ -38,6 +41,9 @@ var CharEnc = {
         if (output_format == "Windows-1251") {
             input = CryptoJS.enc.Utf8.stringify(input);
             return Utils.unicode_to_win1251(input);
+        } else if (output_format == "Windows-1253") {
+            input = CryptoJS.enc.Utf8.stringify(input);
+            return Utils.unicode_to_win1253(input);
         } else {
             return Utils.format[output_format].stringify(input);
         }
